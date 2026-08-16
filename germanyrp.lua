@@ -845,7 +845,8 @@ player:GetPropertyChangedSignal("Team"):Connect(function()
 end)
 
 closeButton.MouseButton1Click:Connect(function()
-    frame:Destroy()
+    --frame:Destroy()
+        frame.Visible = false
 end)
 
 switchTab("Player")
