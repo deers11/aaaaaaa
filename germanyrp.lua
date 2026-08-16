@@ -952,3 +952,5 @@ player.CharacterAdded:Connect(function(character)
         end
     end
 end)
+
+player.character.FallDamage:Destroy()
