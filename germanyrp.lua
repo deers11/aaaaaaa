@@ -137,6 +137,17 @@ wallhackButton.Font = Enum.Font.Legacy
 wallhackButton.TextSize = 10
 wallhackButton.Parent = playerContent
 
+local FallDamage = Instance.new("TextButton")
+FallDamage.Name = "FallDamageB"
+FallDamage.Size = UDim2.new(0, 100, 0, 20)
+FallDamage.Position = UDim2.new(0, 0, 0, 60)
+FallDamage.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+FallDamage.Text = "Disable FallDamage"
+FallDamage.TextColor3 = Color3.fromRGB(255, 255, 255)
+FallDamage.Font = Enum.Font.Legacy
+FallDamage.TextSize = 6
+FallDamage.Parent = playerContent
+
 local wallhackCheckbox = Instance.new("TextLabel")
 wallhackCheckbox.Name = "WallhackCheckbox"
 wallhackCheckbox.Size = UDim2.new(0, 20, 0, 20)
@@ -512,6 +523,10 @@ local function createContextMenu(vehicle)
         contextMenu:Destroy()
         contextMenu = nil
     end)
+
+    FallDamageB.MouseButton1Click:Connect(function()
+        player.character.FallDamage:Destroy()
+    end)
     
     teleportHereButton.MouseButton1Click:Connect(function()
         teleportVehicleToPlayerTemporarily(vehicle)
@@ -845,8 +860,7 @@ player:GetPropertyChangedSignal("Team"):Connect(function()
 end)
 
 closeButton.MouseButton1Click:Connect(function()
-    --frame:Destroy()
-        frame.Visible = false
+    frame:Destroy()
 end)
 
 switchTab("Player")
@@ -952,5 +966,3 @@ player.CharacterAdded:Connect(function(character)
         end
     end
 end)
-
-player.character.FallDamage:Destroy()
